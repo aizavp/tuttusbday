@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday TUTTUS! 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .birthday-card:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .photo-item {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.1);
+        }
+
+        button {
+            background: #ff6b6b;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #ff5252;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: white;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .hidden-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            color: #ff6b6b;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎂 Happy Birthday TUTTUS! 🎉</h1>
+        
+        <div class="birthday-card" onclick="openCard()">
+            <h2 style="color: #ff6b6b;">Click to Open Your Card!</h2>
+        </div>
+
+        <div class="photo-grid">
+            <!-- Add your friend's photos here -->
+            <img src="https://i.imgur.com/EzF4AwV.jpg" class="photo-item" alt="Memory 1">
+            <img src="https://i.imgur.com/weCqP2S.jpg" class="photo-item" alt="Memory 2">
+            <img src="https://i.imgur.com/D10VHkX.jpg" class="photo-item" alt="Memory 3">
+            <img src="https://i.imgur.com/XjxWtXC.jpeg" class="photo-item" alt="Memory 4">
+        </div>
+
+        <button onclick="showSurprise()">Click for a Surprise! 🎁</button>
+
+        <div id="hiddenMessage" class="hidden-message">
+            <h3>Many many happy returns of the Day 🥳</h3>
+            <p>
+                “Chettaaaaaa……..<br>
+                That call is something I adore. Every time you approach me calling that, I just feel like talking to my younger sister. Sometimes I even wonder how well you look at me. I even tell myself, oh well others are looking up to you. Maybe I’m not that bad. Remember when I first met you, it was in the cafe I think. You were wearing the old school uniform - blue and white. From there to economic class and then - chetta chetta chetta-,,,,to everywhere. Looking back, I can see the beautiful bond I made with you. It’s actually, heartwarming to listen to you. Your everyday routine, feelings, thoughts, gossip, and even more. From what to select for the CRX to what to eat for dinner. You share everything with me. And I want to let you know that I am so delighted to listen to your every little things.<br><br>
+                I couldn't get you any presents this time, but I give you my word for the next time. (giving orders to Google to remind me) So once again a final many many happy returns of the day. On this auspicious women’s day, a little girl was born once who is still a little girl as a matter of fact. Hopefully someday women aayi maruaairkum. Appolthekk…..aahne……Happy advanced womens day. I wish all of your dreams comes true and you achieve your destiny.<br><br>
+                And yes I treat you as a kid cause for me, you are one. …!. And finally, the question you ask me a thousand times,- How am I bearing you, your pichal manthal blah blah blah everything. Cause for me, like I said, Some friends are family. And you are one of them. !! aah that's it for today. Cherish your day tuttuss….!!!
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+
+        function openCard() {
+            alert("🎉 Happy Birthday! 🎂\nHere is a small b'day present from a chettan to an aniyathi. Yes you are family! I know it's late and you might be disappointed, and apologies for that. It took a while to make this. For the rest, scroll down. Hope you like it!");
+            createConfetti();
+        }
+
+        function showSurprise() {
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            hiddenMessage.style.display = 'block';
+            createConfetti();
+            setTimeout(() => {
+                hiddenMessage.style.display = 'none';
+            }, 10000); // Hide after 10 seconds
+        }
+
+        // Initial confetti
+        createConfetti();
+    </script>
+</body>
+</html>
